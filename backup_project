@@ -1,0 +1,20 @@
+#!/bin/bash
+#Backup the project
+
+#Get the current date and time
+datetime=`date +%y%m%d_%H%M`
+
+echo "Backing up the database..."
+echo "Enter the db password for www"
+db_backupfile=ministrybackup_db_$datetime.dmp
+pg_dump ministry -U www > $db_backupfile
+bzip2 $db_backupfile
+mv $db_backupfile.bz2 backup
+
+echo "Backing up the project..."
+code_backupfile=ministrybackup_code_$datetime.tar
+tar --exclude="backup" -cvf $code_backupfile *
+bzip2 $code_backupfile
+mv $code_backupfile.bz2 backup
+
+echo "Done backing up"

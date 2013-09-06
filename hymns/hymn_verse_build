@@ -1,0 +1,4 @@
+python generate_hymn_verse.py
+python generate_hymn_verse_nav.py
+~/bin/isiloxc -x hymn_verse.ixl -v
+

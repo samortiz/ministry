@@ -1,0 +1,62 @@
+Some errors I had to correct.
+After downloading chapter data (using getchapters), you will need to modify the following : 
+
+Collected Works of Watchman Nee, The (Set 1) Vol. 15: Study on Matthew/chapter_Table of Contents.html
+ Add  : <li>Matthew Chapter Three</li>
+
+Collected Works of Watchman Nee, The (Set 1) Vol. 17: Notes on Scriptural Messages (1)/chapter_Table of Contents.html
+ Add  : (Issue No. 16)</li><li>   
+ <li>The Power of Choosing (Issue No. 16)</li><li> a Silent Testimony (Issue No. 16)</li>
+
+Collected\ Works\ of\ Watchman\ Nee\,\ The\ \(Set\ 1\)\ Vol.\ 20\:\ Questions\ on\ the\ Gospel/
+ Add first li : <li>Preface to Questions on the Gospel</li>
+
+Collected\ Works\ of\ Watchman\ Nee\,\ The\ \(Set\ 3\)\ Vol.\ 48\:\ Messages\ for\ Building\ Up\ New\ Believers\ \(1\)/
+ Remove preface, change start="3" to start="2"
+
+Conclusion\ of\ the\ New\ Testament\,\ The\ \(Msgs.\ 205-220\)
+  add </ul> at : The Counterpart of Christ (1)</li></ul><li>Message Two Hundred Fourteen
+
+Life-Study\ of\ 1\,\ 2\,\ \&\ 3\ John\,\ Jude
+ add start=41 
+
+Normal\ Christian\ Faith\,\ The
+ change outer ol to ul
+
+Spirit\ in\ the\ Epistles\,\ The
+ change outer ol to ul
+
+Spiritual\ Man\,\ The\ \(3\ volume\ set\)
+ changed ol lists to add start=""
+
+Apostles\'\ Teaching\ and\ the\ New\ Testament\ Leadership\,\ The
+Collected\ Works\ of\ Watchman\ Nee\,\ The\ \(Set\ 2\)\ Vol.\ 26\:\ Collection\ of\ Newsletters\ \(2\)\ \&\ Watchman\ Nee\'s\ Testimony
+     added </li> tag
+
+Conclusion\ of\ the\ New\ Testament\,\ The\ \(Msgs.\ 050-062\)
+Conclusion\ of\ the\ New\ Testament\,\ The\ \(Msgs.\ 079-098\)
+ (plus a bunch of other conclusion messages!)
+  removed nested <ul> tags 
+  used vim commands : 
+    :1,$s/<\/li>\t<\/ul>/ /g
+    :1,$s/<ul class="none">\t<li>//g
+    :1,$s/—/-/g
+
+Gospel Outlines : Modified heavily, removed inner ol tags, changed them to <br>
+Present Advance of the Lord's Recovery: removed spurious <li>
+Priesthood, The : Removed <li> items from headers (that are not chapters)
+All-Inclusive Christ : added missing </ol>
+Lord's Table Meeting (outlines): added missing </ol>
+
+Life_Messages_Vol_1_1_41 : Chapter link for Oneness in the wrong place!
+
+*** Bad One ***
+ Lesson Book 5 - The Church...  
+ This book is really messed up, the chapter links point to book 4
+ There is no Table of Contents, but there are chapters in the book!
+
+
+
+
+
+

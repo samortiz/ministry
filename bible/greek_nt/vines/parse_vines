@@ -1,0 +1,54 @@
+#Parse the vines entries
+
+#Remove the old SQL file (this script will create a new one)
+rm import.sql
+
+# max 3443
+for num in $(seq -f '%04g' 3443) ;
+#for num in 0360 0131
+do
+ # The output file that will be generated
+ html_file=html/$num.html
+ tmp_file=temp/$num
+ tmp_file2=temp/$num.B
+
+ echo "Processing Vines entry #$num"
+ 
+ # Cut the header and footer lines off
+ cat $html_file | head --lines=-15 | tail --lines=+14 > $tmp_file
+
+  # Parse the header info and create SQL
+ head --lines=1 $tmp_file | sed "s/.*Topic: \(.*\)<\/h3>\(\(<font size=+1>&lt\(.*\),\(.*\),\(.*\),\(.*\)&gt\)\|\(\*.*\)\).*$/\ninsert into vines (vines_num, word) values ('$num', '\1');\ninsert into vines_def(vines_num, code, word_type, strongs_num, greek, definition) values ('$num', '\4', '\5', '\6', '\7', '\8');/" >> import.sql
+
+ # Trim off the line we just parsed (don't need that data any more)
+ cat $tmp_file | tail --lines=+2 > $tmp_file2
+ cp $tmp_file2 $tmp_file
+ 
+ # Remove all the newlines. Trim off some stray tags at the start
+ cat $tmp_file | tr "\n" " " | sed "s/^<\/font><br>\(.*\)$/\1/" > $tmp_file2
+ cp $tmp_file2 $tmp_file
+
+ # Break up the lines, one for each definition
+ cat $tmp_file | sed "s/<p> <font size=+1>/\n/g" > $tmp_file2
+ cp $tmp_file2 $tmp_file
+
+ # Escape for db \ to \\ and ' to \' (using E escape construct)
+ cat $tmp_file | sed "s/<p>/ /g" | sed "s/[ ]\{2,\}/ /g"  \
+ | sed "s/\\\/\\\\\\\\/g" | sed "s/'/\\\'/g" > $tmp_file2
+ cp $tmp_file2 $tmp_file
+
+ # Get the main defintion (first line) , remove p tags, and remove duplicate whitespace
+ head --lines=1 $tmp_file | sed "s/^\(.*\)/update vines_def set definition=E'\1' where vines_num=$num and definition = '';\n/"  >> import.sql
+
+ # Cut the first line off (with the definition)
+ tail --lines=+2 $tmp_file > $tmp_file2
+ cp $tmp_file2 $tmp_file
+
+ # Parse all the definitions
+ cat $tmp_file | sed -e "s/^&lt\(.*\),\(.*\),\(.*\),\(.*\)&gt <\/font><br>\(.*\)$/insert into vines_def(vines_num, code, word_type, strongs_num, greek, definition) values ('$num', E'\1', E'\2', E'\3', E'\4', E'\5');\n/" >> import.sql
+
+done
+
+
+
+

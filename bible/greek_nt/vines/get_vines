@@ -1,0 +1,16 @@
+#Gets all the entries for the Vine's Expository Dictionary
+
+#Get all the HTML pages for vines
+for num in $(seq -f '%04g' 3443) ;
+do
+ #The output file that will be generated
+ file=$num.html
+
+ echo "Getting Vine's $num"
+ wget -O html/$file "http://www2.mf.no/bibelprog/vines?word=%AFt000$num"
+
+done
+
+
+
+

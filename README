@@ -1,0 +1,39 @@
+ministry
+========
+
+Bibles, Hymn book, ministry books - All your ministry needs!
+
+Bible : 
+ - Several translations : KJV, ASV, Young's Literal, RcV w notes
+
+ - A parsed greek translation (NA26) with lemmas
+
+
+Hymns : 
+ - The hymn book imported to a postgres database
+
+ - Add verses and footnotes to specific lines of the hymn
+ 
+ - Add chords to the hymn
+
+ - Export to excel or chordpro
+
+
+Books :
+ - Lots of ministry books imported into tables and sorted according
+   to their outline hierarchy.  
+
+ - Search function for the books which adds weight to book titles
+   chapter titles and section titles. 
+
+ - Tables of Contents looked up and linked to the right pages
+
+
+Installation :
+ You can't really install this, your best bet is to just import the finished
+ database. I didn't include all the raw data files in this repository.  
+
+ This will require you to have a postgres database to import to.  The SQL
+ will work with other databases, but the python expects the postgres lib
+
+

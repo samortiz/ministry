@@ -1,0 +1,210 @@
+ID-Locator Coding and Morph File Packing 
+  
+DOCUMENTATION FOR THE "TLG BETA CODE" ID-LOCATORS SYSTEM 
+  
+(adapted by Robert Kraft from the TLG Code Summary Manual  
+and the TLG CD-ROM "A" documentation by William Johnson) 
+  
+How a Text and its Subdivisions are Identified 
+  
+   In TLG Beta Format, an "ID locator" record can be identified  
+its first character, which is always tilde (~). Immediately after  
+the tilde comes one of the following letters: a b c v w x y z. 
+These letters indicate the various levels, or "fields," of 
+ID-locator. Letters abc specify the larger ID levels such as 
+author and work, while letters v through z are used to identify  
+the subdivisions of text such as volume, chapter, verse and line.  
+  
+   Any of the ID letters (abcxyz, etc.) may be followed by the 
+value that is to be assigned to that field. This value can be  
+null (which is not the same as zero), or numeric (as large as  
+32000), or non-numeric, which may be expressed by one or more  
+ASCII characters enclosed in quotation marks (to a maximum of 15 
+enclosed characters). Here are some examples, with more detailed 
+explanation given in subsequent paragraphs:  
+  
+~a"0059"b"034"c"Leg"x1 {TLG 0059=Plato, 034=Laws; x-level set at 1}
+~a"LXX"b"052"c"EpJer"y1       {largest division is y-level (verse)}
+~c"Tim"x"t"          {assumes a and b levels; x-level set as title}
+~c"Sir"x"P"        {assumes a..b levels; starts with Prologue, y=1}
+~c"Sir"x"P"y"t"           {same as above except y-level is a title}
+~c"Sir"x"P"y1z"t" {same as above except y=1 and z-level is a title}
+~x            {assumes a..c levels; increments x-level, resets y,z}
+~xy2        {increments x-level, but y-level starts at 2, resets z}
+~xy"t"       {increments x-level, but y-level is a title; resets z}
+~x10y2z3                 {resets each level to the indicated value}
+~y        {assumes a..c and x levels, increments y-level, resets z}
+~y6           {y-level set at 6 (e.g. if ~y5 is missing), resets z}
+~y"21a"                   {special y-level versification, resets z}  
+  
+   In TLG Beta coding, ID levels a and b are reserved for the  
+coded identification of the "author" and work respectively. These  
+levels always occur at the start of a text grouping. The c-level 
+is an optional level specifying the preferred abbreviation for a 
+work (this is used where, as with the TLG materials, the work is 
+cited by a control number; see the first example given above). 
+With some types of text, the a..c levels could be used to  
+indicate a larger variety of classifications such as type of 
+material, author and work (e.g. ~a"LatMorph"b"Vergil"c"Ecl"), but  
+this use does not occur on the present PHI/CCAT CD-ROM.  
+  
+   The levels v through z are used to identify divisions within  
+an individual work. The smallest division is always z, which 
+denotes the line number and is normally implicit (unless 
+traditional line numbers are missing or out of order or for some 
+other reason need to be made explicit). The other levels are used  
+as needed. Thus in the Bible texts the x-level indicates chapter,  
+the y-level verse, and the z-level line. In the Iliad, the 
+y-level indicates the book and the z-level the line. In certain  
+works, two (or more) different types of division can be  
+maintained simultaneously -- e.g. for Philo, the w-level would 
+indicate the divisions common to both older and newer systems  
+while x-level gives the older section divisions, and y-level the 
+newer paragraph divisions that supercede the older section 
+numbers. 
+  
+Implicit and Explicit Identifiers  
+  
+   At the start of any new text file, all levels of ID-locators  
+are set on the first line by means of the appropriate coding:  
+a..c for type/author, work and abbreviation levels, followed by  
+the highest necessary level of subdivision marker (v..z), which  
+automatically sets the levels below it to 1 unless otherwise 
+specified. For subsequent works within the same a-level  
+classification, only the work title level (c) and lower level  
+(v..z) values need to be set. Thus, for thirty consecutive works 
+by the same author that are cited by book and line, the initial  
+entry to the entire series must give the full information (a..c  
+and y) while for each subsequent new work, only the c and y  
+levels need to be given. Similarly, the initial entry for the  
+Revised Standard Version of the English Bible would be 
+~a"RSV"b"001"c"Gen"x1, while the subsequent books of the Bible 
+would require only ~c"Ex"x1, ~c"Lev"x1, etc. (It is not harmful  
+to repeat all the information with each book, but it is not  
+necessary to do so.) 
+  
+   At the v..z levels, it is usually necessary only to specify 
+the largest division that changes value (e.g. x-level), since the  
+lesser divisions are automatically reset to 1 when the larger  
+divisions change. Thus, when there is a change to a new chapter  
+(y-level) in a work that uses only chapter and line, the line  
+counter (z-level) is reset to 1 automatically. In a text that has  
+chapters (x-level) and verses (y-level) as well as lines 
+(z-level), changing to a new chapter automatically resets the  
+verse and line counters. NOTE, however, that when the author or  
+work changes (a..c levels), all lower levels are implicitly set  
+to null (not to 1). This makes it advisable to set the largest of  
+the v..z levels in any new a..c line, as in the examples given 
+above. Alternatively, these values can be set on the line  
+following the a..c line. 
+ 
+  
+
+   CODING FOR TRANSLITERATION OF HEBREW, GREEK, COPTIC 
+              FOR CCAT/CATSS/TLG MATERIALS
+
+
+Hebrew                  Greek        (Greek=Coptic)   Coptic
+
+alef     )              alfa             A   =
+bet      B              beta             B   =
+gimel    G              gamma            G   =
+dalet    D              delta            D   =
+he       H              epsilon          E   =
+waw      W              digamma/vau (=6) V
+zayin    Z              zeta             Z   =
+het      X              eta              H   =
+tet      +              theta            Q   =
+yod      Y              iota             I   =
+kaf      K              kappa            K   =
+lamed    L              lamda            L   =
+mem      M              mu               M   =
+nun      N              nu               N   =
+samek    S              ksi              C   =
+ayin     (              omicron          O   =
+pe       P              pi               P   =
+zade     C              koppa (=90)      #3
+qof      Q              rho              R   =
+resh     R              sigma (both)     S   =
+sin/shin #             [sigma final      J ]
+sin      &              tau              T   =
+shin     $              upsilon          U   =
+taw      T              phi              F   =
+                        chi              X   =
+                        psi              Y   =
+                        omega            W   =
+patah         A         sampi(=900)      #5
+qametz        F
+hireq         I
+segol         E
+tsere         "         smooth breathing )         shai      s
+holam         O         rough breathing  (         fai       f
+qibbuts       U         iota subscript   |         chai(Bo)
+shureq        W.
+schwa         :         acute accent     /         hori      h
+holem waw     OW        grave accent     \         janjia    j
+hateph-pathah :A        circumflex acc.  =         gima      g
+hateph-qametz :F
+hateph-segol  :E
+maqqeph       -         diaeresis        +         ti        t
+dagesh        .         midpoint punct.  :         dash      -
+rape          ,
+ketiv    *              capital letter   * (precedes)
+qere    **
+
+
+
+                   HEBREW ACCENTS/CANTILLATION CODING
+(named and cross referenced as in the TABULA ACCENTUM insert card in BHS)
+  [alternate coding used by the French and Belgian projects also noted]
+
+Michigan-Claremont                   BHS      CATAB        CIB
+
+at end (to left) of word, above
+00 ; --- sop pasuq [end of verse]                -          -
+01 .:--- segolta                     I.3        14          7
+02  )--- zarqa, sinnor             I.9,II.7     20          -
+03  \--- pashta, azla legarmeh    I.10,II.12    21          -
+04  &--- telisha parvum              I.25       47         30
+05  |--- paseq [separator]          "Nota"      11          -
+ - |-,-- legarmeh (74 + 05)          I.18     40 + 11       -
+at start (to right) of word, below
+10   ---< yetib (yetiv)              I.11       23        (42)
+13   ---\ dehi or tipha             II.9       (49)         -
+
+at start (to right) of word, above
+11   ---/ (81 + ) mugrash           II.5         -          -
+14   ---% telisha magnum             I.17       27         31
+
+above word
+24  -&-- telisha qetannah (med)       -          -          -
+44  -%-- telisha magnum (med)         -          -          -
+52       puncta extraordinaria above
+60  --<- ole or mahpakatum         (II.2)        -         43
+61  -/-- geresh or teres             I.13       25         81
+62  -"-- garshayim                   I.14       26         82
+63  -\-- azla, azla or qadma      I.24,II.19   45=46        8
+64  -,-- illuy                      II.15        -         44
+65  -#-- shalshelet (magn,parv)    I.4,II.6+20  15         33
+80  -:-- zaqep parvum                I.5        16          6
+81  -.-- rebia (magnum=parvum)     I.7,II.4=8   19          5 (cf 80)
+82  --)- sinnorit                   II.21      (20)         9
+83  -+-- pazer                    I.15,II.10    28         90
+84 -&%-- pazer mag. or qarne para    I.16       29         32
+85 -|:-- zaqep magnum                I.6        17         60
+
+below word
+35 -F|:-- meteg (med)                  -       (12)        (,)
+53       puncta extraordinaria below
+70  -<-- mahpak or mehuppak       I.20,II.11+18 43         42
+71  -/-- mereka                    I.21,II.14   41          1
+72 -//-- mereka kepulah (duplex)      I.22      42         11
+73  -\-- tipha, tarha               I.8,II.16   18          2 (munah)
+ - --\-- mayela [= 73]                I.27      49          -
+74  -,-- munah                  I.18-19,II.13   40          4 (dehi/tarha)
+75  -|-- silluq [meteg (left)]      I.1,II.1    12          ,
+91 -./-- tebir                        I.12      22         10
+92  -^-- atnah                      I.2,II.3    13          3
+93  -v-- galgal or yerah           I.26,II.17   48         41
+94  -s-- darga                        I.23      44         40
+95  -|-- meteg (right) [cf 35,75]      -       (12)         -

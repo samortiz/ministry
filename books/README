@@ -1,0 +1,44 @@
+Ministry Books
+
+getbooks.py 
+  Downloads the books from the ministrybooks.org web site, and stores the raw_html
+  Strips off the header and footer and stores the rest of the content in clean_html
+
+getchapters.py
+  generates chap_html directories and chap_00x.html files for all the books on ministrybooks.org
+
+gen_chapter_data.py
+ generate the toc page with links from the downloaded chapter data (downloaded in getchapters.py)
+ creates chap_html/book/toc_with_links.html and chap_html/book/chapter_Table of Contents.html
+ (this command works locally on the data collected by getbooks and getchapters)
+
+
+ ---- Creating Output Files ----
+gen_isilo_group.py
+  goes through clean_html and chap_html and generates isilo_group_html 
+  
+  To produce the pdb file (in isilo_pdb) run :
+  isiloxc -vv -x isilo_group.ixl
+
+gen_isilo_separate.py
+  goes through clean_html and chap_html and generates HTML in isilo_separate_html
+  
+  To produce the pdb files (LOTS) (in isilo_pdb/books) run :
+  isiloxc -vv -x isilo_separate.ixl
+
+gen_html_book.py
+  Goes through clean_html and produces book_html, with one HTML file per book
+
+
+---- Database Import ----
+import_books_to_db.py
+  Imports all the books into the database, it will only process books that don't exist in the db
+  but are found in clean_html. 
+  NOTE: For additional cleanup you need to run import_books_cleanup.py
+        and perhaps also run some lines from import_books_cleanup.sql 
+
+import_chapters.py
+  Imports the chapter data to the book_chapter table in the database
+  It will only process books that don't exist in the db but are found in chap_html
+  NOTE: after running this run import_chapters.sql
+

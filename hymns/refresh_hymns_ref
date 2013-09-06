@@ -1,0 +1,14 @@
+#!/bin/bash
+
+echo "Delete hymn_verse entries (web entries may have corrupted things)"
+echo "delete from hymn_verse" | psql "user=www password=your-pwd dbname=ministry"
+
+echo "Import the master spreadsheet"
+import_spreadsheet.py
+
+echo "Create the isilo HTML files"
+generate_html_isilo.py
+isiloxc -x isilo_html.ixl -v
+
+echo "Finished."
+

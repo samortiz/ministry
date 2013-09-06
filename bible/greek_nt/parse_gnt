@@ -1,0 +1,11 @@
+#Parse the greek New Testament into a db
+
+# Escape db characters \ and ' 
+# Parse out each line and convert it into an SQL insert statement
+cat gnt_na26.4nf \
+ | sed -e "s/\\\/\\\\\\\\/g" | sed -e "s/'/\\\'/g" \
+ | sed -e "s/^\([0-9][0-9]\)\([0-9][0-9]\)\([0-9][0-9]\) ! \(..\) \(........\) ------ ! \(\S\+\) .* ! \(\S\+\).$/insert into greek_nt_import (book_num, chap_num, verse_num, word_type, parse, word, lemma) values ('\1', '\2', '\3', '\4', '\5', E'\6', E'\7' ); /" \
+ > gnt.sql
+
+
+
