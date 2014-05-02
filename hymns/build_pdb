@@ -1,0 +1,45 @@
+#!/bin/bash
+# Runs a build of the pdb files
+#
+# Usage : build_pdb OUTPUT_DIR LOWRES PDB_FILENAME VERSES
+#
+#   OUTPUT_DIR = the relative path to the directory to create and store the build in
+#   LOWRES = either "regular" or "lowres"  (defaults to regular)
+#   PDB_FILENAME = name of the pdb file to generate
+#   VERSES = "verses" or "noverses" (defaults to verses)
+#
+# See build_all for a list of available options for building
+#
+
+OUTPUT_DIR=$1
+RESOLUTION=$2
+PDB_FILENAME=$3
+VERSES=$4
+NAV_TEMPLATE_FILE="nav_template.html"
+FILE_EXTENSION="html"
+
+# Create the hymn pages
+python generate_hymn_verse.py $OUTPUT_DIR $VERSES $FILE_EXTENSION
+
+# Generate the navigation
+python generate_nav.py $OUTPUT_DIR $NAV_TEMPLATE_FILE $FILE_EXTENSION
+
+# Generate the ixl
+python generate_ixl.py $OUTPUT_DIR $PDB_FILENAME $VERSES
+
+# Copy the images
+echo "Copying image files to $OUTPUT_DIR/images"
+mkdir -p $OUTPUT_DIR/images
+cp images/$RESOLUTION/* $OUTPUT_DIR/images
+cp images/shared/* $OUTPUT_DIR/images
+
+# Generate the pdb
+~/bin/isiloxc -x $OUTPUT_DIR/hymn_verse.ixl -v
+
+# Copy the output files (publishing)
+echo "Copying pdb file to ministry/www (alwayrejoice.com/ministry)"
+cp "$OUTPUT_DIR/$PDB_FILENAME" /home/sortiz/project/ministry/www
+
+echo "Copying pdb file to alwayrejoice.com/isilo"
+cp "$OUTPUT_DIR/$PDB_FILENAME" /var/www/alwaysrejoice/isilo
+

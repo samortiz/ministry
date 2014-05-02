@@ -1,0 +1,5 @@
+#!/bin/bash
+# Command to run validation
+
+java -jar epubcheck-3.0.2-SNAPSHOT.jar /var/www/alwaysrejoice/isilo/Hymns_and_Songs.epub 
+

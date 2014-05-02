@@ -1,0 +1,40 @@
+#!/bin/bash
+# Create the epub 
+
+OUTPUT_DIR="builds/epub"
+VERSES="noverses"
+FILE_EXTENSION="xhtml"
+
+NAV_TEMPLATE="nav_template_epub.xhtml"
+CONTENT_TEMPLATE="epub_content_template.opf"
+EPUB_FILENAME="Hymns_and_Songs.epub"
+EPUB_PATH="/var/www/alwaysrejoice/isilo"
+EPUB=$EPUB_PATH/$EPUB_FILENAME
+
+
+#Remove the original file
+rm -f $EPUB
+
+python generate_hymn_verse.py $OUTPUT_DIR $VERSES $FILE_EXTENSION
+
+python generate_nav.py "$OUTPUT_DIR/nav" $NAV_TEMPLATE $FILE_EXTENSION
+
+echo "Copying all the shared files"
+cp -R epub/shared/* $OUTPUT_DIR
+
+echo "Create the content.opf file"
+python generate_epub_controls.py $OUTPUT_DIR $CONTENT_TEMPLATE
+
+echo "Generate the epub file (zipping it up)"
+cd $OUTPUT_DIR
+zip -X0q $EPUB mimetype
+zip -Xur9Dq $EPUB *
+cd -
+
+echo "Validating $EPUB"
+cd epub/epubcheck-master/bin
+java -jar epubcheck-3.0.2-SNAPSHOT.jar $EPUB 2>&1 | tee -a output
+cd -
+
+echo "Done creating $EPUB"
+

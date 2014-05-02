@@ -29,7 +29,7 @@ order by rank desc;
   for searchResult in searchResults:
     hnum = str(searchResult[0])
     hymn_text = searchResult[2]
-    html += "<tr><td valign='top'><a href='display_hymn.py?hnum="+hnum+"'>"+hnum+"</a></td>"
+    html += "<tr><td valign='top'><a href='/ministry/display_hymn.py?hnum="+hnum+"'>"+hnum+"</a></td>"
     html += "<td><pre>"+hymn_text+"</pre></td></tr>"
 
   html += "</table>"

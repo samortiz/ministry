@@ -1,0 +1,60 @@
+img {border:0}
+
+div#booktext {width:86%; margin:0 7%; clear:both; font:normal 1em Georgia, "Times New Roman", Times, serif;}
+div#booktext a {font:bold 1em Georgia, "Times New Roman", Times, serif; color:#07a7cb;}
+div#booktext a:visited, div#booktext a:link {text-decoration:none;}
+div#booktext a:hover {text-decoration:underline;}
+
+/* begin styles for book text */
+h1, H1 {text-align:center; font-family:Georgia, "Times New Roman", Times, serif;}
+.series, .SERIES {font:bold 1.1em Georgia, "Times New Roman", Times, serif;}
+.msg, .MSG, .subtitle, .SUBTITLE {font:normal 1em Georgia, "Times New Roman", Times, serif;}
+.scripture, .SCRIPTURE { 
+	font:normal 1em Georgia, "Times New Roman", Times, serif; 
+	text-align:left; 
+	margin-left:10px;}
+.scripture-center {text-align:center; font:normal 1em Georgia, "Times New Roman", Times, serif;}
+h2, H2, .head1, .HEAD1, .head2, HEAD2, HEAD2F, .title, .TITLE, .paren, .PAREN {
+	font:bold 1em Georgia, "Times New Roman", Times, serif;
+	text-align:center;}
+.uhead1 {text-decoration:underline;}
+.head3, .head3u, .HEAD3, .HEAD3F, .head4, .HEAD4, .HEAD4F, .ital {font:italic normal 1em Georgia, "Times New Roman", Times, serif;}
+.head5, .HEAD5, .HEAD5F, .head6, .HEAD6, .HEAD6F {font:italic normal 0.8em Georgia, "Times New Roman", Times, serif;}
+.head7, .HEAD7, .HEAD7F {font:normal 0.7em Georgia, "Times New Roman", Times, serif;}
+p, P, blockquote {text-align:justify; font:normal 1em Georgia, "Times New Roman", Times, serif;}
+.right {text-align:right;}
+.alignleft {text-align:left;}
+.footnote {text-align:justify; color:#999;}
+.hbody, .HBODY {text-align:justify; margin:0 25%;}
+.hbody2 {text-align:justify; margin:0 30%;}
+.hbody-hymn {text-align:right; margin:0 25%;}
+.indent1, .INDENT1 {text-align:justify; margin:0 40px;}
+.greek {font:normal 1em "Times New Roman", Times, serif; text-align:center;}
+.hebrew {font:normal 1.3em "Times New Roman", Times, serif; text-align:center;}
+.sm {font:normal 0.7em Arial, Helvetica, sans-serif; text-align:left;}
+.gray {font:bold 0.8em Arial, Helvetica, sans-serif; color:#acacac;}
+.blue {color:#2959c4;}
+.bold, .regbold, .bd {font-weight:bold; text-align:left;}
+.underline {text-decoration:underline;}
+.bdit {font-style:italic; font-weight:bold;}
+.normal {font-weight:normal; color:#000;}
+sup, sub {font:normal 0.8em Georgia, "Times New Roman", Times, serif; text-align:left;}
+.hbody62 {margin-left:62px;}
+.left20 {margin-left:20px;}
+.left30 {margin-left:30px;}
+.left40 {margin-left:40px;}
+.left60 {margin-left:60px;}
+.indent10 {margin-left:10px;}
+ol, ul {text-align:left; font:normal 1em Georgia, "Times New Roman", Times, serif;}
+.upper-roman {list-style-type:upper-roman;}
+.upper-romanbd {list-style-type:upper-roman; font-weight:bold;}
+.lower-roman {list-style-type:lower-roman;}
+.upper-alpha {list-style-type:upper-alpha;}
+.decimal {list-style-type:decimal;}
+.decimalbd {list-style-type:decimal; font-weight:bold; color:#2959C4;}
+.otl-number {font-weight:bold; color:#2959c4;}
+.decimalbd span {font-weight:normal; color:#000;}
+.lower-alpha {list-style-type:lower-alpha;}
+.none {list-style-type:none; list-style-position:outside;}
+.disc {list-style-type:disc; list-style-position:outside;}
+/* end styles for book text */

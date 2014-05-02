@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package xmlns="http://www.idpf.org/2007/opf" unique-identifier="uuid_id" version="2.0">
+  <metadata 
+      xmlns:dc="http://purl.org/dc/elements/1.1/"
+      xmlns:dcterms="http://purl.org/dc/terms/"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:opf="http://www.idpf.org/2007/opf">
+    <dc:title>Hymns and Songs</dc:title>
+    <dc:language xsi:type="dcterms:RFC3066">en</dc:language>
+    <dc:identifier id="uuid_id" opf:scheme="not-so-unique">hymns_and_songs.epub</dc:identifier>
+    <dc:subject>Hymns, Songs, Spiritual</dc:subject>
+    <dc:description>Hymns and Songs for spiritual nourishment</dc:description>
+  </metadata>
+
+  <manifest>
+    <item href="titlepage.xhtml"  id="titlepage" media-type="application/xhtml+xml"/>
+    <item href="stylesheet.css" id="css" media-type="text/css"/>
+    <item href="toc.ncx" id="ncx" media-type="application/x-dtbncx+xml"/>
+    <item href="firstlines.xhtml"  id="firstlines" media-type="application/xhtml+xml"/>
+
+    ~MANIFEST_FILES~
+  </manifest>
+
+  <spine toc="ncx">
+    <itemref idref="titlepage"/>
+    ~SPINE_FILES~
+    <itemref idref="firstlines"/>
+  </spine>
+
+  <guide>
+    <reference href="titlepage.xhtml" title="Cover" type="cover"/>
+  </guide>
+
+</package>

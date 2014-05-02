@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 import os, shutil, pg, cgi, re
 from db_functions import *
-from verse_functions import *
 from www_functions import *
 
 PAGESIZE = 100

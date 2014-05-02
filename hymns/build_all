@@ -1,0 +1,17 @@
+#!/bin/bash
+#
+# Runs all the available builds
+# For parameters see the comment in the build script
+#
+# ----------------- Building iSilo pdb --------------------------------
+#
+#         OUTPUT_DIR            RESOLUTION PDB_FILENAME             VERSES   
+build_pdb builds/html           regular    hymn_verse.pdb           verses  
+build_pdb builds/html_lowres    lowres     hymn_verse_lowres.pdb    verses 
+build_pdb builds/html_nv        regular    hymn_songbook.pdb        noverses
+build_pdb builds/html_lowres_nv lowres     hymn_songbook_lowres.pdb noverses
+
+# ----------------- Build epub ----------------------------------------
+
+build_epub
+

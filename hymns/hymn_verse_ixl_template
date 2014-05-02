@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<iSiloXDocumentList>
+  <iSiloXDocument>
+    <Source>
+      <Sources>
+~PATHS~
+      </Sources>
+    </Source>
+
+    <DocumentOptions>
+      <HomePageNumber value="1"/>
+    </DocumentOptions>
+
+    <Messages>
+      <Title>~TITLE~</Title>
+      <Version>~VERSION~</Version>
+    </Messages>
+
+    <Destination>
+      <Title>~TITLE~</Title>
+      <Files>
+        <Path>~PDB_PATH~</Path>
+      </Files>
+    </Destination>
+  </iSiloXDocument>
+
+</iSiloXDocumentList>
+
