@@ -37,6 +37,16 @@ if (fileExtension == "xhtml"):
   pagePath = "../pages/"
 
 
+def isLeafNode(hnumStr, hnums):
+  "Returns true if the hnum specified has no child nodes"
+  leaf = True
+  for nextNum in range(0,10): #check all children 
+    nextHnum = hnumStr+str(nextNum)
+    if (int(nextHnum) in hnums) and (int(nextHnum) != 0):
+      leaf = False  # if any child is valid this is not a leaf
+  return leaf
+ 
+
 
 # Go through all the hymns
 print "Generating navigation pages in "+output_dir
@@ -64,24 +74,28 @@ for hnumInt in hnums:
   #Go button
   html = html.replace("~NAVgo~", pagePath+hnumStrFile)
 
-  # Number buttons
+  # Check if this page is a leaf node
+  if isLeafNode(hnumStr, hnums) :
+    # We don't need to generate this page at all, it's never called
+    continue
+
+  # For each number button
   for num in range(0,10):
     newHnum = hnumStr+str(num)
     
     # Check if this is a leaf node button (then we go directly to the page)
-    isLeafNode = True
-    for nextNum in range(0,10): #check all children 
-      nextHnum = newHnum+str(nextNum)
-      if (int(nextHnum) in hnums) and (int(nextHnum) != 0):  
-        isLeafNode = False  # if any child is valid this is not a leaf
+    isLeaf = isLeafNode(newHnum, hnums)
     
     # Error checking, see if the new hnum is valid
     if not int(newHnum) in hnums:
       newHnum = hnumStr
+      # For image buttons
       html = html.replace("button_"+str(num)+".jpg", "button_blank.jpg")
+      # For text buttons
+      html = html.replace("&#160;"+str(num), "")
     
     newPath = "nav_"+newHnum.rjust(4,'0')    
-    if isLeafNode:
+    if isLeaf:
       newPath = pagePath+newHnum.rjust(4,'0')  # go directly to the page
     # setup the button URL
     html = html.replace("~NAV"+str(num)+"~", newPath)

@@ -30,7 +30,7 @@ if (len(sys.argv) >= 4) :
 imagePath = "images/"
 navPath = ""
 navPathFromRoot = ""
-pagepath = ""
+pagePath = ""
 rootPath = ""
 if (fileExtension == "xhtml"):
   imagePath = "../images/"
@@ -284,11 +284,12 @@ for hymn in hymns:
 
   # Create the main HTML display
   html += hymnHtml
-  if (verseHtml != ''):
-    html += "<div style='height:10px; border-bottom:1px solid black'></div>\n"
+  if (verseHtml != '') or (fileExtension=="xhtml"):
+    html += "<div style='height:10px; padding-bottom:10px; border-bottom:1px solid black; margin:0px 30px'>&#160;</div>\n"
     html += verseHtml
   
-  html += "<div style='height:40px'></div>\n"
+  if (fileExtension == "html"):
+    html += "<div style='padding-bottom:40px'>&#160;</div>\n"
 
   html += "</body></html>\n"
    

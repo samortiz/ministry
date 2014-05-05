@@ -6,12 +6,12 @@
 # ----------------- Building iSilo pdb --------------------------------
 #
 #         OUTPUT_DIR            RESOLUTION PDB_FILENAME             VERSES   
-build_pdb builds/html           regular    hymn_verse.pdb           verses  
-build_pdb builds/html_lowres    lowres     hymn_verse_lowres.pdb    verses 
-build_pdb builds/html_nv        regular    hymn_songbook.pdb        noverses
-build_pdb builds/html_lowres_nv lowres     hymn_songbook_lowres.pdb noverses
+build_pdb builds/pdb           regular    hymn_verse.pdb           verses  
+build_pdb builds/pdb_lowres    lowres     hymn_verse_lowres.pdb    verses 
+build_pdb builds/pdb_nv        regular    hymn_songbook.pdb        noverses
+build_pdb builds/pdb_lowres_nv lowres     hymn_songbook_lowres.pdb noverses
 
 # ----------------- Build epub ----------------------------------------
-
-build_epub
+#          OUTPUT_DIR  EPUB_FILENAME        VERSES
+build_epub builds/epub Hymns_and_Songs.epub noverses
 

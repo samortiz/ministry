@@ -7,11 +7,11 @@ from file_functions import *
 # Setup
 templateFile = "hymn_verse_ixl_template"
 outputFile = "hymn_verse.ixl"
-rootPath = "/home/sortiz/project/ministry/hymn_verse"
+rootPath = "/home/sortiz/project/ministry/hymns"
 
 
 # Output dir parameter (or default)
-output_dir = "build/hymn_verse_html"
+output_dir = "builds/default"
 if (len(sys.argv) >= 2) :
   output_dir = sys.argv[1]
 

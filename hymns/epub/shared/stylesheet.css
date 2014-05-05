@@ -1,4 +1,3 @@
-
 .stanza {
   padding-left:1px; 
   padding-top:8px;
@@ -17,13 +16,6 @@
   margin-top: 0;
   margin-bottom: 0;
 }
-
-.verse {
-  font-weight:bold;
-  font-size:80%;
-  white-space:nowrap;
-}
-
 
 .line_type_data {
 }

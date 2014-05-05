@@ -21,7 +21,7 @@
 
     <navPoint id="nav-2" playOrder="2">
       <navLabel>
-        <text>Find Song</text>
+        <text>Find a Song by Number</text>
       </navLabel>
       <content src="nav/nav_0000.xhtml"/>
     </navPoint>
