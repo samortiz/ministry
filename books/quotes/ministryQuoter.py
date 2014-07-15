@@ -81,8 +81,8 @@ storedQuote = "~"
 
 
 # Authentication
-#oauth_token, oauth_secret = read_token_file(MY_TWITTER_CREDS)
-#twitter = Twitter(auth=OAuth(oauth_token, oauth_secret, CONSUMER_KEY, CONSUMER_SECRET))
+oauth_token, oauth_secret = read_token_file(MY_TWITTER_CREDS)
+twitter = Twitter(auth=OAuth(oauth_token, oauth_secret, CONSUMER_KEY, CONSUMER_SECRET))
 
 # Find a unique random quote (NOT USED)
 #while (storedQuote == "~") or (storedQuote in usedQuotes):
@@ -106,15 +106,14 @@ if len(quotesInBook) <= currentLine:
   with open(DATA_DIR+"/"+currentBook) as f :
     quotesInBook = f.readlines()
   bookDisplay = currentBook[:-4]
-  print "Reading "+bookDisplay
-  #tweet(twitter, "Reading "+currentBook)
+  # TODO check for excessive length
+  tweet(twitter, "Reading "+currentBook)
 
 #Get the quote
 currentQuote = quotesInBook[currentLine]
 storedQuote = currentBook+"~"+currentQuote
 
-#tweet(twitter, currentQuote)
-print storedQuote
+tweet(twitter, currentQuote)
 
 if storedQuote != "~" :
   #Save the state
