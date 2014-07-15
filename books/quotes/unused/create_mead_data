@@ -1,0 +1,33 @@
+#!/bin/bash
+# Copies the book data to the mead directory and sets up the cluster
+
+HOME="/home/sortiz/project/ministry/books"
+QUOTE_DIR="$HOME/quotes"
+BOOK_DIR="$HOME/clean_html"
+DATA_DIR="$HOME/quotes/mead/data"
+HTML_TO_CLUSTER="$QUOTE_DIR/mead/bin/addons/formatting/html2cluster.pl"
+
+cd $BOOK_DIR
+for ORIG_BOOK_TITLE in * ; do
+  # Replace spaces with _, strip non-Alphanumeric
+  BOOK_TITLE=${ORIG_BOOK_TITLE// /_}
+  BOOK_TITLE=${BOOK_TITLE//[^a-zA-Z0-9_]/}
+
+  echo "Processing $BOOK_TITLE"
+  cp -R "$BOOK_DIR/$ORIG_BOOK_TITLE" "$DATA_DIR/$BOOK_TITLE"
+
+  cd $QUOTE_DIR
+  python $QUOTE_DIR/cleanup_html.py $BOOK_TITLE
+
+  cd $DATA_DIR
+  $HTML_TO_CLUSTER $BOOK_TITLE
+  rm -Rf $BOOK_TITLE/orig
+  echo "$ORIG_BOOK_TITLE" > "$BOOK_TITLE/orig_title.txt"
+
+  mead.pl -p 4 $BOOK_TITLE > $BOOK_TITLE/quotes.txt
+
+done
+
+cd $QUOTE_DIR
+
+
