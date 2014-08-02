@@ -4,8 +4,8 @@
 import os
 from twitter import * 
 
-CONSUMER_KEY='8P19bGTlvNDWollpb0pwX64LK'
-CONSUMER_SECRET='OD5aPl9mb8VLETmQzmC2cg9VSGYktpOqboUfNID6fj5mnpflIE'
+CONSUMER_KEY=''
+CONSUMER_SECRET=''
 
 print "Authenticating"
 

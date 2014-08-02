@@ -2,7 +2,7 @@
 import  pg
 
 #Setup the database
-db = pg.DB(dbname='ministry', host='localhost', user='www', passwd='dbpwd4coyote')
+db = pg.DB(dbname='ministry', host='localhost', user='www', passwd='yourpwdhere')
 
 # to query multiple rows and get the results as a 2-D array use 
 # db.query(sql).getresult()
