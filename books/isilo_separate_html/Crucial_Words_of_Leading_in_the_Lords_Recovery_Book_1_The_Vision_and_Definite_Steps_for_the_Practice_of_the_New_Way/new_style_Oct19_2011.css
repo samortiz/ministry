@@ -1,0 +1,125 @@
+body {
+  	margin:0;
+  	padding:32px 0 0 220px;
+	border-top:2px solid #ab7339;}
+div#header {
+  	position:absolute;
+  	top:0;
+  	left:0;
+	width:100%;
+  	height:32px;
+	background-color:#ab7339;
+	z-index:3;}
+
+/* begin styles for book location box */
+#reading-location {
+	position:static;
+	width:175px;
+	margin:0;
+	padding:6px;
+	float:right;
+	text-align:center;
+	color:#fff;
+	font:bold 13px Arial, Helvetica, sans-serif;}
+#reading-location .number {
+	color:#fff;
+	font:bold 12px Arial, Helvetica, sans-serif;
+	background-color:#2959C4;
+	padding:1px 5px;}
+/* end styles for book location box */
+
+div#left-sidebar {
+  	position:absolute;
+  	top:32px;
+  	left:0;
+  	width:220px;
+  	height:100%;
+}
+@media screen{
+body>div#header{position:fixed;}
+}
+* html body{overflow:hidden;} 
+* html div#content{height:100%; overflow:auto;}
+img {border:0}
+
+div#booktext {width:86%; margin:0 7%; clear:both; font:normal 1em Georgia, "Times New Roman", Times, serif;}
+div#booktext a {font:bold 1em Georgia, "Times New Roman", Times, serif; color:#07a7cb;}
+div#booktext a:visited, div#booktext a:link {text-decoration:none;}
+div#booktext a:hover {text-decoration:underline;}
+
+div#footer {width:86%; margin:0 7%; padding:5px 0; font:normal 11px Arial, Helvetica, sans-serif;}
+div#footer a {font:normal 11px Arial, Helvetica, sans-serif; color:#07a7cb;}
+div#footer a:visited, div#footer a:link {text-decoration:none;}
+div#footer a:hover {text-decoration:underline;}
+
+#top-of-page {
+	border-top:1px dotted #603913;
+	border-bottom:1px dotted #603913;
+	background-color:#f1e9db;
+	width:86%;
+	margin:0 7%;
+	padding:3px 0;
+	text-align:center;}
+#top-of-page a {
+	padding:2px 6px;
+	font:bold 12px Arial, Helvetica, sans-serif;
+	text-decoration:none;
+	color:#07a7cb;}
+#top-of-page a:hover {
+	text-decoration:none;
+	background-color:#07a7cb;
+	color:#fff;}
+
+/* begin styles for book text */
+h1, H1 {text-align:center; font-family:Georgia, "Times New Roman", Times, serif;}
+.series, .SERIES {font:bold 1.1em Georgia, "Times New Roman", Times, serif;}
+.msg, .MSG, .subtitle, .SUBTITLE {font:normal 1em Georgia, "Times New Roman", Times, serif;}
+.scripture, .SCRIPTURE { 
+	font:normal 1em Georgia, "Times New Roman", Times, serif; 
+	text-align:left; 
+	margin-left:10px;}
+.scripture-center {text-align:center; font:normal 1em Georgia, "Times New Roman", Times, serif;}
+h2, H2, .head1, .HEAD1, .head2, HEAD2, HEAD2F, .title, .TITLE, .paren, .PAREN {
+	font:bold 1em Georgia, "Times New Roman", Times, serif;
+	text-align:center;}
+.uhead1 {text-decoration:underline;}
+.head3, .head3u, .HEAD3, .HEAD3F, .head4, .HEAD4, .HEAD4F, .ital {font:italic normal 1em Georgia, "Times New Roman", Times, serif;}
+.head5, .HEAD5, .HEAD5F, .head6, .HEAD6, .HEAD6F {font:italic normal 0.8em Georgia, "Times New Roman", Times, serif;}
+.head7, .HEAD7, .HEAD7F {font:normal 0.7em Georgia, "Times New Roman", Times, serif;}
+p, P, blockquote {text-align:justify; font:normal 1em Georgia, "Times New Roman", Times, serif;}
+.right {text-align:right;}
+.alignleft {text-align:left;}
+.footnote {text-align:justify; color:#999;}
+.hbody, .HBODY {text-align:justify; margin:0 25%;}
+.hbody2 {text-align:justify; margin:0 30%;}
+.hbody-hymn {text-align:right; margin:0 25%;}
+.indent1, .INDENT1 {text-align:justify; margin:0 40px;}
+.greek {font:normal 1em "Times New Roman", Times, serif; text-align:center;}
+.hebrew {font:normal 1.3em "Times New Roman", Times, serif; text-align:center;}
+.sm {font:normal 0.7em Arial, Helvetica, sans-serif; text-align:left;}
+.gray {font:bold 0.8em Arial, Helvetica, sans-serif; color:#acacac;}
+.blue {color:#2959c4;}
+.bold, .regbold, .bd {font-weight:bold; text-align:left;}
+.underline {text-decoration:underline;}
+.bdit {font-style:italic; font-weight:bold;}
+.normal {font-weight:normal; color:#000;}
+sup, sub {font:normal 0.8em Georgia, "Times New Roman", Times, serif; text-align:left;}
+.hbody62 {margin-left:62px;}
+.left20 {margin-left:20px;}
+.left30 {margin-left:30px;}
+.left40 {margin-left:40px;}
+.left60 {margin-left:60px;}
+.indent10 {margin-left:10px;}
+ol, ul {text-align:left; font:normal 1em Georgia, "Times New Roman", Times, serif;}
+.upper-roman {list-style-type:upper-roman;}
+.upper-romanbd {list-style-type:upper-roman; font-weight:bold;}
+.lower-roman {list-style-type:lower-roman;}
+.upper-alpha {list-style-type:upper-alpha;}
+.decimal {list-style-type:decimal;}
+.decimalbd {list-style-type:decimal; font-weight:bold; color:#2959C4;}
+.otl-number {font-weight:bold; color:#2959c4;}
+.decimalbd span {font-weight:normal; color:#000;}
+.lower-alpha {list-style-type:lower-alpha;}
+.none {list-style-type:none; list-style-position:outside;}
+.disc {list-style-type:disc; list-style-position:outside;}
+/* end styles for book text */

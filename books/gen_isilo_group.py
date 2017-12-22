@@ -7,6 +7,7 @@ from book_functions import *
 htmlDir = 'clean_html'
 chapDir = 'chap_html'
 isiloDir = 'isilo_group_html'
+projectBooksDir = '/home/sortiz/project/ministry/books'
 
 
 # Takes an HTML page and produces an iSilo page out of it
@@ -73,7 +74,7 @@ iSiloControlStr = """<?xml version="1.0"?>
  <iSiloXDocument>
     <Source>
       <Sources>
-      <Path>/home/sortiz/project/books/"""+isiloDir+"""/index.html</Path>
+      <Path>"""+projectBooksDir+"""/"""+isiloDir+"""/index.html</Path>
 """
 
 # Contents of the index.html file, containing links to all the books
@@ -122,7 +123,7 @@ for bookRaw in books:
       html = open(os.path.join(bookPath, page), "r").read()
     pageNum = page[5:8]
     createIsiloPage(book, bookRaw, int(pageNum), int(lastPageNum), html)
-    iSiloPagePaths += "<Path>/home/sortiz/project/books/"+isiloDir+"/"+book+"/"+page+"</Path>\n"
+    iSiloPagePaths += "<Path>"+projectBooksDir+"/"+isiloDir+"/"+book+"/"+page+"</Path>\n"
 
   #Add this book to the index.html file
   bookTitleCleaned = bookRaw.replace('\xe2\x80\x94', '-').replace('\xe2\x80\x93', '-') # replace hyphens
@@ -142,7 +143,7 @@ iSiloControlStr += """
     <Destination>
       <Title>Ministry Books</Title>
       <Files>
-        <Path>/home/sortiz/project/books/isilo_pdb/ministry_books.pdb</Path>
+        <Path>"""+projectBooksDir+"""/isilo_pdb/ministry_books.pdb</Path>
       </Files>
     </Destination>
     

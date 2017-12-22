@@ -5,6 +5,7 @@ import os, time, shutil
 #File Variables
 htmlDir = 'clean_html'
 isiloDir = 'isilo_separate_html'
+projectBooksDir = '/home/sortiz/project/ministry/books'
 
 # ---------------------- Misc Functions --------------------------------
 
@@ -162,7 +163,7 @@ for bookRaw in books:
       html = open(os.path.join(bookPath, page), "r").read()
     pageNum = page[5:8]
     createIsiloPage(book, int(pageNum), int(lastPageNum), html)
-    iSiloPagePaths += "<Path>/home/sortiz/project/books/"+isiloDir+"/"+book+"/"+page+"</Path>\n"
+    iSiloPagePaths += "<Path>"+projectBooksDir+"/"+isiloDir+"/"+book+"/"+page+"</Path>\n"
 
 
   #Copy the extra data files
@@ -183,7 +184,7 @@ for bookRaw in books:
     <Destination>
       <Title>"""+bookRaw+"""</Title>
       <Files>
-        <Path>/home/sortiz/project/books/isilo_pdb/books/"""+firstLetter+"""/"""+book+""".pdb</Path>
+        <Path>"""+projectBooksDir+"""/isilo_pdb/books/"""+firstLetter+"""/"""+book+""".pdb</Path>
       </Files>
     </Destination>
     

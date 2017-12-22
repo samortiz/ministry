@@ -1,0 +1,7 @@
+wkhtmltopdf -s A4 ../html_books/Life_Study_of_1__2_Chronicles_Ezra_Nehemiah_and_Esther.html Life_Study_of_Chron_Ezra_Neh_Esther.pdf
+wkhtmltopdf --page-height 30cm --page-width 15cm ../html_books/Life_Study_of_1__2_Chronicles_Ezra_Nehemiah_and_Esther.html Life_Study_of_Chron_Ezra_Neh_Esther_small.pdf
+
+wkhtmltopdf -s A4 ../html_books/Life_Study_of_Deuteronomy.html Life_Study_of_Deuteronomy.pdf
+wkhtmltopdf --page-height 30cm --page-width 15cm ../html_books/Life_Study_of_Deuteronomy.html Life_Study_of_Deuteronomy.pdf
+
+

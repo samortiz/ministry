@@ -1,0 +1,191 @@
+body {
+background-color:#ffffff;
+margin: 0px;
+padding: 0px;
+font-family: georgia;
+}
+
+img {border: 0px;}
+
+th {font-size:1em; font-weight:bold; font-family:Georgia, "Times New Roman", Times, serif; text-align:center;}
+
+h1.series {font-size:1.3em; font-weight:bold; font-family:Georgia, "Times New Roman", Times, serif; text-align:center}
+H1.SERIES {font-size:1.3em; font-weight:bold; font-family:Georgia, "Times New Roman", Times, serif; text-align:center}
+
+h1.msg {font-size:1em; font-weight:normal; font-family:Georgia, "Times New Roman", Times, serif; text-align: center}
+H1.MSG {font-size:1em; font-weight:normal; font-family:Georgia, "Times New Roman", Times, serif; text-align: center}
+
+h1.title {font-size:1em; font-weight:bold; font-family:Georgia, "Times New Roman", Times, serif; text-align:center}
+H1.TITLE {font-size:1em; font-weight:bold; font-family:Georgia, "Times New Roman", Times, serif; text-align:center}
+
+h1.subtitle {font-size:1em; font-weight:normal; font-family:Georgia, "Times New Roman", Times, serif; text-align:center}
+
+h1.paren {font-size:1em; font-weight:bold; font-family:Georgia, "Times New Roman", Times, serif; text-align:center}
+H1.PAREN {font-size:1em; font-weight:bold; font-family:Georgia, "Times New Roman", Times, serif; text-align:center}
+
+h1.subtitle {font-size:1em; font-weight:normal; font-family:Georgia, "Times New Roman", Times, serif; text-align:center;}
+
+h1.scripture {font-size:1em; font-weight:normal; font-family:Georgia, "Times New Roman", Times, serif; text-align:left; line-height:120%; margin-left:10px}
+H1.SCRIPTURE {font-size:1em; font-weight:normal; font-family:Georgia, "Times New Roman", Times, serif; text-align:left; line-height:120%; margin-left:10px}
+
+.scripture-center {text-align:center; font-size:1em; font-weight:normal; font-family:Georgia, "Times New Roman", Times, serif; line-height:120%}
+
+h2.uhead1 {font-size:1em; font-weight:bold; font-family:Georgia, "Times New Roman", Times, serif; text-align:center; text-decoration:underline}
+
+h2.head1 {font-size:1em; font-weight:bold; font-family:Georgia, "Times New Roman", Times, serif; text-align:center}
+H2.HEAD1 {font-size:1em; font-weight:bold; font-family:Georgia, "Times New Roman", Times, serif; text-align:center}
+
+h2.head2 {font-size:1em; font-weight:bold; font-family:Georgia, "Times New Roman", Times, serif; text-align:center}
+H2.HEAD2 {font-size:1em; font-weight:bold; font-family:Georgia, "Times New Roman", Times, serif; text-align:center}
+H2.HEAD2F {font-size:1em; font-weight:bold; font-family:Georgia, "Times New Roman", Times, serif; text-align:center}
+
+h2.head3 {font-size:1em; font-weight:bold; font-family:Georgia, "Times New Roman", Times, serif; text-align:center; font-style:italic}
+h2.head3u {font-size:1em; font-weight:bold; font-family:Georgia, "Times New Roman", Times, serif; text-align:center; font-style:italic; text-decoration:underline;}
+H2.HEAD3 {font-size:1em; font-weight:bold; font-family:Georgia, "Times New Roman", Times, serif; text-align:center; font-style:italic}
+H2.HEAD3F {font-size:1em; font-weight:bold; font-family:Georgia, "Times New Roman", Times, serif; text-align:center; font-style:italic}
+
+h2.head4 {font-size:1em; font-weight:normal; font-family:Georgia, "Times New Roman", Times, serif; text-align:center; font-style:italic}
+H2.HEAD4 {font-size:1em; font-weight:normal; font-family:Georgia, "Times New Roman", Times, serif; text-align:center; font-style:italic}
+H2.HEAD4F {font-size:1em; font-weight:normal; font-family:Georgia, "Times New Roman", Times, serif; text-align:center; font-style:italic}
+
+h2.head5 {font-size:0.8em; font-weight:bold; font-family:Georgia, "Times New Roman", Times, serif; text-align:center; font-style:italic}
+H2.HEAD5 {font-size:0.8em; font-weight:bold; font-family:Georgia, "Times New Roman", Times, serif; text-align:center; font-style:italic}
+H2.HEAD5F {font-size:0.8em; font-weight:bold; font-family:Georgia, "Times New Roman", Times, serif; text-align:center; font-style:italic}
+
+h2.head6 {font-size:0.8em; font-weight:normal; font-family:Georgia, "Times New Roman", Times, serif; text-align:center; font-style:italic}
+H2.HEAD6 {font-size:0.8em; font-weight:normal; font-family:Georgia, "Times New Roman", Times, serif; text-align:center; font-style:italic}
+H2.HEAD6F {font-size:0.8em; font-weight:normal; font-family:Georgia, "Times New Roman", Times, serif; text-align:center; font-style:italic}
+
+h2.head7 {font-size:0.7em; font-weight:normal; text-align:center; font-family: georgia,arial, verdana}
+H2.HEAD7 {font-size:0.7em; font-weight:normal; text-align:center; font-family: georgia,arial, verdana}
+H2.HEAD7F {font-size:0.7em; font-weight:normal; text-align:center; font-family: georgia,arial, verdana}
+
+p {font-size:1em; font-weight:normal; font-family:Georgia, "Times New Roman", Times, serif; text-align:justify; line-height:120%}
+P {font-size:1em; font-weight:normal; font-family:Georgia, "Times New Roman", Times, serif; text-align:justify; line-height:120%}
+
+.right {font-size:1em; font-weight:normal; font-family:Georgia, "Times New Roman", Times, serif; text-align:right; line-height:120%}
+
+.footnote {font-size:1em; font-weight:normal; font-family:Georgia, "Times New Roman", Times, serif; text-align:justify; line-height:120%; color:#999999;}
+
+p.hbody {font-size:1em; font-weight:normal; font-family:Georgia, "Times New Roman", Times, serif; text-align:justify; margin-left:25%; margin-right:25%; line-height:120%}
+P.HBODY {font-size:1em; font-weight:normal; font-family:Georgia, "Times New Roman", Times, serif; text-align:justify; margin-left:25%; margin-right:25%; line-height:120%}
+
+p.hbody2 {font-size:1em; font-weight:normal; font-family:Georgia, "Times New Roman", Times, serif; text-align:justify; margin-left:30%; margin-right:25%; line-height:120%}
+
+p.hbody-hymn {font-size:1em; font-weight:normal; font-family:Georgia, "Times New Roman", Times, serif; text-align:right; margin-left:25%; margin-right:25%; line-height:120%}
+
+.indent1 {font-size:1em; font-weight:normal; font-family:Georgia, "Times New Roman", Times, serif; text-align:justify; margin-left:40px; margin-right:40px; line-height:120%}
+.INDENT1 {font-size:1em; font-weight:normal; font-family:Georgia, "Times New Roman", Times, serif; text-align:justify; margin-left:40px; margin-right:40px; line-height:120%}
+
+p.greek {font-size:1em; font-weight:normal; font-family:times, "Times New Roman"; text-align:center; line-height:120%}
+
+span.greek {font-size:1em; font-weight:normal; font-family:times, "Times New Roman"; text-align:center; line-height:120%}
+ 
+p.hebrew {font-size:1.3em; font-weight:normal; font-family:times, "Times New Roman"; text-align:center; line-height:120%}
+
+p.other {font-size:12px; font-weight:bold; font-family: arial,verdana; color:#000000; text-align:left; margin-left:15px; margin-top:15px; line-height:120%}
+
+p.text {font-size:0.8em; font-weight:normal; font-family: arial,verdana; text-align:justify; line-height:120%}
+
+span.text {font-size:1em; font-weight:normal; font-family: arial,verdana; line-height:120%}
+
+p.copyright {font-size:0.7em; font-weight:normal; font-family: arial,verdana; text-align:center; color:#a7a7a7; line-height:120%}
+
+p.note {font-size:0.7em; font-weight:normal; color:#672624; font-family: arial,verdana; line-height:120%}
+
+div.note {font-size:1em; font-weight:normal; font-family:Georgia, "Times New Roman", Times, serif; border:1px solid #000000; padding:4px;}
+
+p.sm {font-size:0.7em; font-weight:normal; font-family: arial,verdana; text-align:left; line-height:120%}
+
+span.gray {font-size:0.8em; font-weight:bold; color:#aCaCaC; font-family:Georgia, "Times New Roman", Times, serif; line-height:120%}
+
+.bold {font-size:1em; font-weight:bold; font-family:Georgia, "Times New Roman", Times, serif; text-align:left; color:#000000; line-height:120%}
+
+span.bdit {font-size:1em; font-weight:bold; font-family:Georgia, "Times New Roman", Times, serif; text-align:left; color:#000000; line-height:120%; font-style:italic;}
+
+span.normal {font-weight:normal; color:#000000;}
+
+.regbold {font-size:1em; font-weight:bold; font-family:Georgia, "Times New Roman", Times, serif; text-align:left; line-height:120%}
+
+.bd {font-size:1em; font-weight:bold; font-family:Georgia, "Times New Roman", Times, serif; text-align:left; line-height:120%}
+
+.ital {font-size:1em; font-weight:normal; font-family:Georgia, "Times New Roman", Times, serif; text-align:center; line-height:120%; font-style:italic}
+
+sup {font-size:0.8em; font-weight:normal; font-family:Georgia, "Times New Roman", Times, serif; text-align:left}
+sub {font-size:0.8em; font-weight:normal; font-family:Georgia, "Times New Roman", Times, serif; text-align:left}
+
+td {font-size:1em; font-weight:normal; font-family:Georgia, "Times New Roman", Times, serif; line-height:120%; text-align:left; vertical-align: top;}
+
+td#no {text-align: right}
+
+td.indent {font-size:1em; font-weight:normal; font-family:Georgia, "Times New Roman", Times, serif; line-height:120%; padding-left:17px; text-align:left} 
+
+td.text {padding-left:20px; padding-right:20px}
+
+blockquote {font-size:1em; font-weight:normal; font-family:Georgia, "Times New Roman", Times, serif; text-align:justify; line-height:120%}
+
+div.hbody62 {font-size:1em; font-weight:normal; font-family:Georgia, "Times New Roman", Times, serif; text-align:justify; margin-left:62px; line-height:120%}
+
+.left20 {font-size:1em; font-weight:normal; font-family:Georgia, "Times New Roman", Times, serif; text-align:justify; margin-left:20px; line-height:120%}
+
+.left30 {font-size:1em; font-weight:normal; font-family:Georgia, "Times New Roman", Times, serif; text-align:justify; margin-left:30px; line-height:120%}
+
+.left40 {font-size:1em; font-weight:normal; font-family:Georgia, "Times New Roman", Times, serif; text-align:justify; margin-left:40px; line-height:120%}
+
+.left60 {font-size:1em; font-weight:normal; font-family:Georgia, "Times New Roman", Times, serif; text-align:justify; margin-left:60px; line-height:120%}
+
+.indent10 {font-size:1em; font-weight:normal; font-family:Georgia, "Times New Roman", Times, serif; text-align:justify; margin-left:10px; line-height:120%}
+
+ol.bullet {list-style-image:url("images/bullet.gif"); list-style-position:outside; font-size:12px; font-weight:normal; font-family:arial,verdana; text-align:left; line-height:120%}
+
+ol.upper-roman {list-style-type:upper-roman; font-size:1em; font-weight:normal; font-family:georgia,arial,verdana; text-align:left; line-height:120%}
+
+ol.upper-romanbd {list-style-type:upper-roman; font-size:1em; font-weight:bold; font-family:georgia,arial,verdana; text-align:left; line-height:120%}
+
+ol.lower-roman {list-style-type:lower-roman; font-size:1em; font-weight:normal; font-family:georgia,arial,verdana; text-align:left; line-height:120%}
+
+ol.upper-alpha {list-style-type:upper-alpha; font-size:1em; font-weight:normal; font-family:georgia,arial,verdana; text-align:left; line-height:120%}
+
+ol.decimal {list-style-type:decimal; font-size:1em; font-weight:normal; font-family:Georgia, "Times New Roman", Times, serif; text-align:left; line-height:120%}
+
+ol.decimalbd {list-style-type:decimal; font-size:1em; font-weight:normal; font-family:Georgia, "Times New Roman", Times, serif; text-align:left; line-height:120%}
+
+ol.lower-alpha {list-style-type:lower-alpha; font-size:1em; font-weight:normal; font-family:georgia,arial,verdana; text-align:left; line-height:120%}
+
+ol.none {list-style-type:none; list-style-position:outside; font-size:1em; font-weight:normal; font-family:Georgia, "Times New Roman", Times, serif; text-align:left; line-height:120%}
+
+ul.none {list-style-type:none; list-style-position:outside; font-size:1em; font-weight:normal; font-family:Georgia, "Times New Roman", Times, serif; text-align:left; line-height:120%}
+
+ul.disc {list-style-type:disc; list-style-position:outside; font-size:1em; font-weight:normal; font-family:Georgia, "Times New Roman", Times, serif; text-align:left; line-height:120%}
+
+a:visited.copyright {font-size:1em; font-weight:bold; font-family: arial,verdana; text-align:center; color:#2959C4; text-decoration:none; line-height:120%}
+a:link.copyright {font-size:1em; font-weight:bold; font-family: arial,verdana; text-align:center; color:#2959C4; text-decoration:none; line-height:120%}
+a:hover.copyright {font-size:1em; font-weight:bold; font-family: arial,verdana; text-align:center; color:#883A37; text-decoration:underline; line-height:120%}
+
+a:visited {font-size:1em; font-weight:bold; font-family:Georgia, "Times New Roman", Times, serif; text-align:center; color:#2959C4; text-decoration:none}
+a:link {font-size:1em; font-weight:bold; font-family:Georgia, "Times New Roman", Times, serif; text-align:center; color:#2959C4; text-decoration:none}
+a:hover {font-size:1em; font-weight:bold; font-family:Georgia, "Times New Roman", Times, serif; text-align:center; color:#883A37; text-decoration:underline}
+
+a:visited.nav {font-size:0.8em; font-weight:bold; font-family:Georgia, "Times New Roman", Times, serif; text-align:center; color:#2959C4; text-decoration:none}
+a:link.nav {font-size:0.8em; font-weight:bold; font-family:Georgia, "Times New Roman", Times, serif; text-align:center; color:#2959C4; text-decoration:none}
+a:hover.nav {font-size:0.8em; font-weight:bold; font-family:Georgia, "Times New Roman", Times, serif; text-align:center; color:#883A37; text-decoration:underline}
+
+a:visited.text {font-size:1em; font-weight:bold; font-family: arial,verdana; text-align:center; color:#2959C4; text-decoration:none}
+a:link.text {font-size:1em; font-weight:bold; font-family: arial,verdana; text-align:center; color:#2959C4; text-decoration:none}
+a:hover.text {font-size:1em; font-weight:bold; font-family: arial,verdana; text-align:center; color:#883A37; text-decoration:none}
+
+a:visited.names {font-size:0.8em; font-weight:bold; font-family: arial,verdana; text-align:center; color:#2959C4; text-decoration:none}
+a:link.names {font-size:0.8em; font-weight:bold; font-family: arial,verdana; text-align:center; color:#2959C4; text-decoration:none}
+a:hover.names {font-size:0.8em; font-weight:bold; font-family: arial,verdana; text-align:center; color:#2959C4; text-decoration:underline}
+
+a:visited.chap {font-size:12px; font-weight:bold; font-family: arial,verdana; text-align:center; color:#2959C4; text-decoration:none}
+a:link.chap {font-size:12px; font-weight:bold; font-family: arial,verdana; text-align:center; color:#2959C4; text-decoration:none}
+a:hover.chap {font-size:12px; font-weight:bold; font-family: arial,verdana; text-align:center; color:#FFFFFF; background:#2959C4; text-decoration:none}
+a:active.chap {font-size:12px; font-weight:bold; font-family: arial,verdana; color:#FFFFFF; background:#2959C4; text-decoration:none}
+
+a:visited.letter {font-size:0.8em; font-weight:bold; font-family: arial,verdana; text-align:center; color:#2959C4; text-decoration:none}
+a:link.letter {font-size:0.8em; font-weight:bold; font-family: arial,verdana; text-align:center; color:#2959C4; text-decoration:none}
+a:hover.letter {font-size:0.8em; font-weight:bold; font-family: arial,verdana; text-align:center; color:#FFFFFF; background:#883A37; text-decoration:none}
+
+
+div#navlinks a {padding-right:1px}

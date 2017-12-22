@@ -1,19 +1,26 @@
 Ministry Books
 
-getbooks.py 
-  Downloads the books from the ministrybooks.org web site, and stores the raw_html
-  Strips off the header and footer and stores the rest of the content in clean_html
+getbooks.py -> raw_html 
+  Downloads a list of all books available on ministrybooks.org, then downloads missing books to raw_html
 
-getchapters.py
+cleanbooks.py -> clean_html
+  For any missing clean_html folders (that exist in raw_html), will lookup the book content in raw_html 
+  strip off the header and footer and store the rest of the content in clean_html
+
+-- Old format chapters --
+getchapters.py -> chap_html
   generates chap_html directories and chap_00x.html files for all the books on ministrybooks.org
-
 gen_chapter_data.py
  generate the toc page with links from the downloaded chapter data (downloaded in getchapters.py)
  creates chap_html/book/toc_with_links.html and chap_html/book/chapter_Table of Contents.html
  (this command works locally on the data collected by getbooks and getchapters)
 
+-- New format chapters --
+genchapters.py -> chap_html
+  This will create toc_with_links.html in chap_html 
 
- ---- Creating Output Files ----
+
+----------------------- ---- Creating Output Files ---- ------------------------------------
 gen_isilo_group.py
   goes through clean_html and chap_html and generates isilo_group_html 
   
@@ -28,7 +35,7 @@ gen_isilo_separate.py
 
 gen_html_book.py
   Goes through clean_html and produces book_html, with one HTML file per book
-
+  NOTE : This doesn't handle the chapter links in the new format correctly, the links should be removed
 
 ---- Database Import ----
 import_books_to_db.py
@@ -41,4 +48,17 @@ import_chapters.py
   Imports the chapter data to the book_chapter table in the database
   It will only process books that don't exist in the db but are found in chap_html
   NOTE: after running this run import_chapters.sql
+
+
+----------  Format ----
+ministrybooks.org changed their format, so some raw and clean files are structured differently.  
+In particular, they added chapters, which was much needed! But it means that the first page is quite
+different in the old and new formats, the list of chapters is no longer <li> but a list of <a href> 
+which is a lot more reasonable, but changes the way chapters are calculated and generated 
+Here is a list of the books in the new format.  Maybe we should just re-download all the books so they are 
+all in the new format, but that is a lot of time and work... so I am going to leave them for now 
+
+['Administration of the Church and the Perfecting of the Saints, The', 'Age of the One New Man, The', 'Blueprint and the Ground for the Building Up of the Church, The', 'Central Vision for Serving the Church, The', 'Changing Death into Life', 'Christ and the Cross', 'Collected Works of Watchman Nee, The (Set 3) Vol. 55: The Ministers & The Open Door', "Consummation of God's Salvation, The", 'Crystallization-Study Outlines\xe2\x80\x94Psalms, The (1)', 'Crystallization-Study Outlines\xe2\x80\x94Psalms, The (2)', 'Divine Speaking, The', 'Exercise of the Kingdom for the Building of the Church, The', 'Exercise of the Spirit and the Building of God, The', 'Fellowshipping with the Lord for the Mingling of God with Man', 'Four Men in the Bible, The', "God's Need and God's Goal", "God's Plan concerning the Church", 'Great Mystery\xe2\x80\x94Christ and the Church, The', 'Greatest Prophecy in the Bible and Its Fulfillment, The', "How God Becomes Man's Enjoyment", 'Knowing and Experiencing God as Life', 'Law of Revival, The', 'Leading the Young People with the Word and the Spirit', 'Life and Building in the Gospel of John', 'Living and Principles of the Kingdom People, The', 'Living God and the God of Resurrection, The', 'Meaning and Purpose of Prayer, The', 'Operation of God and the Anointing, The', 'Praying Unceasingly and Living in the Spirit', "Priesthood and God's Building, The", 'Proper Way for Believers to Meet and to Serve, The', "Purpose of God's Salvation, The", 'Raising Up the Next Generation for the Church Life', "Revelations in Genesis: Seeing God's Desire and Purpose in Creation", "Revelations in Genesis: Seeing God's Way of Salvation in Man's Fall", 'Service for Building Up the House of God, The', 'Service for the Building Up of the Church', 'Serving According to Revelation', 'Serving in the Flow of the Age', "Sufficiency, Pursuit, and Learning of the Lord's Serving Ones, The", 'Tell Him', 'Vision of the Tree of Life and the Tree of the Knowledge of Good and Evil, The', "Vision, Ministry, and Leading of the Lord's Serving Ones, The", 'Vision, Type, and Practice of the Building Up of the Church, The']
+
+
 

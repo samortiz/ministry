@@ -5,14 +5,12 @@ import os, random, time
 
 
 #URL Variables
-indexURL = 'http://www.ministrybooks.org/alphabetical.cfm'
+indexURL = 'https://www.ministrybooks.org/alphabetical.cfm?all'
 bookURLBase = 'http://www.ministrybooks.org/'
-firstPageURL = 'http://www.ministrybooks.org/Portion.cfm?id=0'
-nextPageURL = 'http://www.ministrybooks.org/Portion.cfm?id=1'
+nextPageURL = 'http://www.ministrybooks.org/books.cfm?n'
 
 #File Variables
 dataDir = 'raw_html'
-htmlDir = 'clean_html'
 
 #Cookie Variables, used to store cookies to maintain session state
 cookiejar = cookielib.CookieJar()
@@ -89,13 +87,13 @@ def getBook (bookName, URL):
   ensure_dir(bookPath)
   
   # Get the first page of the book
-  framesetHtml = getPage(bookURLBase+URL)
-  firstPageHtml = getPage(firstPageURL)
+  firstPageHtml = getPage(bookURLBase+URL)
   writeStringToFile(os.path.join(bookPath, "page_001.html"), firstPageHtml)
-  outputPage(bookName, "page_001.html", firstPageHtml)
   
   # Check to see if there are more pages
-  nextPortionStr = '<a href="Portion.cfm?id=1"><img src="images/next.jpg" width="112" height="27" alt="Next Portion" title="Next Portion" /></a>'
+  nextPortionStr = '<a href="books.cfm?n" class="button radius">next'
+  # <a href="books.cfm?n" class="button radius">next chapter <i class="fa fa-caret-right" aria-hidden="true"></i></a>
+  # <a href="books.cfm?n" class="button radius">next section <i class="fa fa-caret-right" aria-hidden="true"></i></a>
   pageNum = 1
   pageHtml = firstPageHtml #Stores all the page html data
   while pageHtml.find(nextPortionStr) > 0: 
@@ -104,7 +102,6 @@ def getBook (bookName, URL):
     pageFileName = "page_"+str(pageNum).rjust(3,"0")+".html"
     pagePath = os.path.join(bookPath, pageFileName)
     writeStringToFile(pagePath, pageHtml)
-    outputPage(bookName, pageFileName, pageHtml)
     print "Downloaded "+bookName+" Page "+pageFileName
     time.sleep(random.randint(1,2)) # Pause between page loads to go easy on their server
   
@@ -120,45 +117,6 @@ def cutStr(sourceStr, startStr, endStr):
   startCutIndex = sourceStr.find(startStr) + len(startStr)
   endCutIndex = sourceStr.find(endStr)
   return sourceStr[startCutIndex:endCutIndex].strip()
-
-
-# Removes all the header/footer stuff from the HTML page
-# Note: This is very sensitive to changes on the server and may need to be changed when there are updates
-def cleanupHtml(pageHtml):
-  #Cut off the header/footer stuff
-  cleanHtml = cutStr(pageHtml, '<div id="booktext">', '</div> <!-- /booktext -->')
-
-  # Trim the Next/Prev paragraphs
-  pIndex = cleanHtml.find('</p>')
-  if pIndex >= 0:
-    cleanHtml = cleanHtml[pIndex+len('</p>'):] # crop the initial paragraph (containing Prev/Next)
-
-  pIndex = cleanHtml.rfind('<p ')
-  if pIndex >= 0:
-    cleanHtml = cleanHtml[:pIndex] # Crop the last paragraph (containing Prev/Next)
-
-  cleanHtml = cleanHtml.strip()
-
-  #clean off the saved from comment on the first page
-  cIndex = cleanHtml.find('<!-- saved from')
-  if cIndex >= 0:
-    cIndex = cleanHtml.find('-->')
-    cleanHtml = cleanHtml[cIndex+len('-->'):] #trim off the comment
-
-  return cleanHtml
-
-
-#Clean a single page of html, removing the header and footer
-def outputPage(bookName, pageFileName, pageHtml):
-  #Create the output directory if necessary
-  outputDir = os.path.join(htmlDir, bookName)
-  ensure_dir(outputDir)
-
-  cleanHtml = cleanupHtml(pageHtml)
-
-  #Write out the output file
-  writeStringToFile(os.path.join(outputDir, pageFileName), cleanHtml)
-  
 
 
 #Returns a list of all the books missing from the data set, given a master list (the www books are all the books on the web site)
@@ -184,7 +142,6 @@ bookListHtml = getPage(indexURL)
 writeStringToFile("booklist.html", bookListHtml)
 #bookListHtml = open("booklist.html", 'r').read()
 
-
 #Parse out the links to each book
 bookList = booklistParser()
 bookList.parse(bookListHtml)
@@ -195,6 +152,10 @@ ensure_dir(dataDir)
 
 #Get the list of books we currently have in stock
 missingBooks = getMissingBooks(wwwBooks)
+
+print 'missing '+ str(len(missingBooks))
+print missingBooks
+
 #missingBooks = [] #DEBUG below
 while len(missingBooks) > 0 :
   bookIndex = random.randint(0, (len(missingBooks)-1))
@@ -207,7 +168,6 @@ while len(missingBooks) > 0 :
   getBook(bookName, bookURL)
   print "Finished downloading "+bookName+"\n"
   missingBooks = getMissingBooks(wwwBooks)
-
 
 # DEBUG - force the book (so we're not jumping around to different books)
 #bookName = "Mystery of Human Life, The"
