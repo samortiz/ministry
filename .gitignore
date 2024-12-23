@@ -1,7 +1,7 @@
 # Stuff that doesn't need to be checked in 
 backup/
 hymns/builds/
-
+.env
 
 # Python generated files
 *.py[cod]
@@ -14,3 +14,6 @@ hymns/builds/
 .Trashes
 Thumbs.db
 
+# IDE 
+*.iml
+.idea/

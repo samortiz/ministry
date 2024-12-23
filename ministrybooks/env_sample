@@ -1,0 +1,10 @@
+#
+# Env variables (things that shouldn't go into git)
+# NOTE: This is a sample file to show the structure
+# copy this file to a file named .env in the same dir
+# Then fill out appropriate values
+#
+
+MINISTRYBOOKS_USERNAME=your-username
+MINISTRYBOOKS_PASSWORD=your-password-here
+

@@ -2,5 +2,23 @@ Ministry Books Data
 
  This will handle the ministrybooks.org site after they moved to the new site which uses login and has a search
 
+## SETUP 
+Setup a virtual env then enter it using:
+source venv/bin/activate
+
+To install the python libs use:
+pip3 install -r requirements.txt
+
+You will need an .env file in this folder - see env_sample
+
+You will need an excel file named after the variable SEARCH_XLS_FILENAME
+'search_terms.xlsx'
+ This should have three columns, first-name, last-name, search-term
+
+## Run 
+python run_search.py
+
+## Output
+after the run the dir searches/  will contain json files for each search term 
 
 
