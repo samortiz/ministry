@@ -16,6 +16,8 @@ def display_searches():
         for hit in hits:
             print(f'- {hit["book_ref"]} pg. {hit["page_num"]}')
             print(f'{hit["snippet"]}\n')
+        if 'partial' in filename:
+            print(' ... incomplete data, there are more results that are not included ... \n')
 
 
 display_searches()

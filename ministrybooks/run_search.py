@@ -91,7 +91,7 @@ def get_book_snippet(search_context, book_html, book_ref, page_num):
     soup = BeautifulSoup(book_html, 'html.parser')
     # Split the search term into tokens : searching for "(cyprian &! by birth) | jim" should result in a regex "cyprian|by birth|jim"
     tokens = []
-    for token in re.split(r'&!|&|\||\^|\(|\)', search_context['data']['search_term']):
+    for token in re.split(r'&!|&|\||\^|\(|\)|\'-', search_context['data']['search_term']):
         if token.strip():
             tokens.append(token.strip().lower())
     regex_str = str.join('|', tokens)
@@ -101,7 +101,8 @@ def get_book_snippet(search_context, book_html, book_ref, page_num):
         if soup.find_all(string='not a robot'):
             raise ValueError(f'Rate limit hit!')
         else:
-            raise ValueError(f'No text matches found using {regex_str} in \n HTML \n\n{book_html}')
+            raise ValueError(f'No text matches found in HTML \n\n{book_html} \n\n '
+                             f'No text matches found!  book={book_ref}  page_num={page_num} using regex={regex_str}')
     for tag_match in text_matches:
         snippet = tag_match.get_text()
         if tag_match.name != 'p':

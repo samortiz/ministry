@@ -21,5 +21,5 @@ SEARCH_DIR = 'searches'
 SEARCH_XLS_FILENAME = 'search_terms.xlsx'
 
 # Min / Max time to wait before making a network call
-NETWORK_RATE_LIMIT_MIN_S = 60
-NETWORK_RATE_LIMIT_MAX_S = 60
+NETWORK_RATE_LIMIT_MIN_S = 2
+NETWORK_RATE_LIMIT_MAX_S = 2
